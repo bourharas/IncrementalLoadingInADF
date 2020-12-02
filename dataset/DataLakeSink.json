@@ -15,6 +15,9 @@
 			},
 			"day": {
 				"type": "string"
+			},
+			"filename": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -22,18 +25,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().day",
-					"type": "Expression"
-				},
+				"fileName": "@dataset().filename",
 				"folderPath": {
-					"value": "@dataset().month",
+					"value": "'@{dataset().year}/@{dataset().month}/@{dataset().day}'",
 					"type": "Expression"
 				},
-				"fileSystem": {
-					"value": "@dataset().year",
-					"type": "Expression"
-				}
+				"fileSystem": "years"
 			},
 			"compressionCodec": "snappy"
 		},

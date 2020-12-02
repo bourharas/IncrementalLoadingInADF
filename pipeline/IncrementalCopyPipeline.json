@@ -258,6 +258,10 @@
 										"day": {
 											"value": "@substring(string(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue),8,2)",
 											"type": "Expression"
+										},
+										"filename": {
+											"value": "\"@{item().TABLE_NAME}_@{string(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue)}\"",
+											"type": "Expression"
 										}
 									}
 								}
