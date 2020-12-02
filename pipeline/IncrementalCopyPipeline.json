@@ -248,11 +248,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"year": {
-											"value": "substring(@activity('LookupNewWaterMarkActivity').output,0,4)",
+											"value": "substring(@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue},0,4)",
 											"type": "Expression"
 										},
-										"month": "substring(@activity('LookupNewWaterMarkActivity').output,5,2)",
-										"day": "substring(@activity('LookupNewWaterMarkActivity').output,8,2)"
+										"month": "substring(@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue},5,2)",
+										"day": "substring(@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue},8,2)"
 									}
 								}
 							]
