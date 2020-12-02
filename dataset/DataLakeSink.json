@@ -25,9 +25,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@dataset().filename",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
 				"folderPath": {
-					"value": "'@{dataset().year}/@{dataset().month}/@{dataset().day}'",
+					"value": "@{dataset().year}/@{dataset().month}/@{dataset().day}",
 					"type": "Expression"
 				},
 				"fileSystem": "years"
