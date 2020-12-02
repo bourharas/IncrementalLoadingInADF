@@ -1,0 +1,28 @@
+{
+	"name": "project_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Project",
+				"type": "varchar"
+			},
+			{
+				"name": "Creationtime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "project_table"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
