@@ -5,12 +5,35 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"year": {
+				"type": "string",
+				"defaultValue": "years"
+			},
+			"month": {
+				"type": "string"
+			},
+			"day": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "years"
+				"fileName": {
+					"value": "@dataset().day",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().month",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().year",
+					"type": "Expression"
+				}
 			},
 			"compressionCodec": "snappy"
 		},
