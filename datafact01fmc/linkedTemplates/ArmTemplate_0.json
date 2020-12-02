@@ -108,6 +108,9 @@
 					},
 					"day": {
 						"type": "string"
+					},
+					"filename": {
+						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -116,17 +119,14 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@dataset().day",
+							"value": "@dataset().filename",
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@dataset().month",
+							"value": "'@{dataset().year}/@{dataset().month}/@{dataset().day}'",
 							"type": "Expression"
 						},
-						"fileSystem": {
-							"value": "@dataset().year",
-							"type": "Expression"
-						}
+						"fileSystem": "years"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -548,6 +548,10 @@
 												},
 												"day": {
 													"value": "@substring(string(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue),8,2)",
+													"type": "Expression"
+												},
+												"filename": {
+													"value": "\"@{item().TABLE_NAME}_@{string(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue)}\"",
 													"type": "Expression"
 												}
 											}
