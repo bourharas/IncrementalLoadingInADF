@@ -361,7 +361,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "'@{dataset().year}/@{dataset().month}/@{dataset().day}'",
+							"value": "@{dataset().year}/@{dataset().month}/@{dataset().day}",
 							"type": "Expression"
 						},
 						"fileSystem": "years"
